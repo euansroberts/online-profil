@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="de">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Documents | Euan Roberts</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Gluten:wght@100..900&family=Roboto:wght@400;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../styles/style.css">
+    <script src="../scripts/script.js"></script>
+  </head>
+  <body style="--h: 172;">
+
+    <nav class="menu">
+      <button class="menu-toggle" aria-label="Menü öffnen">+</button>
+      <ul class="menu-items">
+        <li><a href="../index.html">Home</a></li>
+        <li><a href="about_me.html">About</a></li>
+        <li><a href="projects.html">Projects</a></li>
+        <li><a href="ict_skills.html">ICT<br>Skills</a></li>
+        <li><a href="documents.html" class="active">Docs</a></li>
+        <li><a href="contact.html">Mail</a></li>
+      </ul>
+    </nav>
+
+    <main class="page">
+      <h1 class="page-title">Documents</h1>
+      <p class="page-subtitle">Privater Bereich – nur mit Login zugänglich</p>
+
+      <!-- Login box -->
+      <section class="card" id="login-box">
+        <h2>🔒 Anmeldung erforderlich</h2>
+        <p>Bitte melden Sie sich an, um meine Bewerbungsunterlagen herunterzuladen.</p>
+        <form class="login-form" id="login-form">
+          <label for="username">Benutzername</label>
+          <input type="text" id="username" name="username" autocomplete="username" required>
+          <label for="password">Passwort</label>
+          <input type="password" id="password" name="password" autocomplete="current-password" required>
+          <div class="login-error" id="login-error"></div>
+          <p class="legend" style="font-family: 'Roboto', system-ui, sans-serif;">
+            Für IDAF sind dies die Login-Daten:<br>
+            Benutzername <strong>bewerbung</strong>&nbsp;&nbsp;&nbsp; Passwort <strong>unblu2026</strong>
+          </p>
+          <p><button type="submit" class="btn">Anmelden</button></p>
+        </form>
+      </section>
+
+      <!-- Locked content, revealed after login -->
+      <section class="card hidden" id="locked-area">
+        <h2>📄 Meine Bewerbungsunterlagen</h2>
+        <p>Sämtliche Unterlagen stehen als PDF zum Download bereit.</p>
+        <ul class="doc-list">
+          <li>
+            <span>Komplettes Bewerbungsdossier</span>
+            <a class="btn" href="../private/IDAF_Bewerbungsdossier.pdf" download>Download</a>
+          </li>
+          <li>
+            <span>Motivationsschreiben</span>
+            <a class="btn" href="../private/IDAF_Bewerbungsdossier.pdf" download>Download</a>
+          </li>
+          <li>
+            <span>Lebenslauf</span>
+            <a class="btn" href="../private/IDAF_Bewerbungsdossier.pdf" download>Download</a>
+          </li>
+          <li>
+            <span>Zeugnis</span>
+            <a class="btn" href="../private/IDAF_Bewerbungsdossier.pdf" download>Download</a>
+          </li>
+          <li>
+            <span>Modulnotenüberblick</span>
+            <a class="btn" href="../private/IDAF_Bewerbungsdossier.pdf" download>Download</a>
+          </li>
+        </ul>
+        <p class="legend">
+          Hinweis: Motivationsschreiben, Lebenslauf, Zeugnis und
+          Modulnotenüberblick sind im Bewerbungsdossier zusammengefasst.
+        </p>
+      </section>
+
+    </main>
+  </body>
+</html>

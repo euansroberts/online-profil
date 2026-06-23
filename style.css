@@ -1,0 +1,479 @@
+/* ============================================================
+   Online-Bewerbungsprofil – Euan S. Roberts
+   Shared stylesheet for all pages
+   ============================================================ */
+
+:root {
+  /* Whole theme is derived from a single hue (--h). Each page sets its
+     own --h on <body>, shifting subtly from green (Home) to teal (last
+     menu item). Lightness stays dark so white text is always readable.
+     NOTE: the --green-* colors are declared on `body` (not here) so that
+     each page's `--h` actually re-computes them. */
+  --h: 146;
+  --white:  #ffffff;
+
+  --radius: 16px;
+  --shadow: 0 12px 30px rgba(0, 0, 0, 0.28);
+}
+
+* { box-sizing: border-box; }
+
+html { scroll-behavior: smooth; }
+
+/* ============================================================
+   Page transitions (CSS only, via the View Transitions API).
+   When navigating, the previous page floats up and out of the
+   screen while the new page is revealed underneath.
+   Works in Chromium browsers served over http(s); other browsers
+   simply navigate instantly with no animation.
+   ============================================================ */
+@view-transition { navigation: auto; }
+
+/* Duration scales with how many menu steps the jump covers
+   (--vt-distance is set by script.js; defaults to 2). */
+::view-transition-group(root) {
+  --vt-dur: calc(0.32s + var(--vt-distance, 2) * 0.11s);
+}
+
+/* The leaving page stays on top and floats out; the new page is
+   revealed underneath. Default (and "up") = float up off the top. */
+::view-transition-old(root) {
+  z-index: 2;
+  animation: page-float-up var(--vt-dur, 0.55s) ease forwards;
+}
+
+::view-transition-new(root) {
+  z-index: 1;
+  animation: page-fade-in var(--vt-dur, 0.55s) ease forwards;
+}
+
+/* Going UP the menu (e.g. Projects -> Home): float down off the bottom */
+html:active-view-transition-type(down)::view-transition-old(root) {
+  animation: page-float-down var(--vt-dur, 0.55s) ease forwards;
+}
+
+@keyframes page-float-up {
+  to { transform: translateY(-100%); opacity: 0; }
+}
+
+@keyframes page-float-down {
+  to { transform: translateY(100%); opacity: 0; }
+}
+
+@keyframes page-fade-in {
+  /* Start fully transparent so the new theme colour cross-fades with the
+     outgoing page as it slides away, instead of being revealed abruptly. */
+  from { opacity: 0; transform: translateY(14px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+/* Respect users who prefer reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  ::view-transition-old(root),
+  ::view-transition-new(root) { animation: none; }
+}
+
+body {
+  /* Derived here so each page's own --h (set inline on <body>) recomputes them */
+  --green-page:   hsl(var(--h), 69%, 33%);
+  --green-panel:  hsl(var(--h), 74%, 18%);
+  --green-panel-2:hsl(var(--h), 64%, 19%);
+  --green-line:   hsl(var(--h), 45%, 34%);
+  --accent-light: hsl(calc(var(--h) - 5), 63%, 84%);
+
+  margin: 0;
+  min-height: 100vh;
+  font-family: "Gluten", system-ui, sans-serif;
+  color: var(--white);
+
+  /* Green background with a repeating pattern of small white plus signs */
+  background-color: var(--green-page);
+  background-image: url("data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20width='44'%20height='44'%3E%3Cpath%20d='M20%2014h4v6h6v4h-6v6h-4v-6h-6v-4h6z'%20fill='%23ffffff'%20fill-opacity='0.4'/%3E%3C/svg%3E");
+  background-size: 44px 44px;
+}
+
+/* ---------- Generic layout for content pages ---------- */
+
+.page {
+  max-width: 980px;
+  margin: 0 auto;
+  padding: 110px 24px 80px;
+}
+
+.page-title {
+  font-size: clamp(2.4rem, 6vw, 4rem);
+  font-weight: 800;
+  margin: 0 0 8px;
+  text-shadow: 0 3px 10px rgba(0, 0, 0, 0.35);
+}
+
+.page-subtitle {
+  font-size: 1.15rem;
+  font-weight: 400;
+  margin: 0 0 36px;
+  color: var(--accent-light);
+}
+
+/* A solid-green card – the repeating pattern never shows behind text */
+.card {
+  background-color: var(--green-panel);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  padding: 28px 32px;
+  margin-bottom: 28px;
+}
+
+.card h2 {
+  margin: 0 0 6px;
+  font-size: 1.7rem;
+  color: var(--accent-light);
+}
+
+.card h3 {
+  margin: 22px 0 10px;
+  font-size: 1.25rem;
+}
+
+.card p { line-height: 1.6; }
+
+a { color: var(--accent-light); }
+a:hover { color: var(--white); }
+
+/* ---------- Definition tables (CV / data rows) ---------- */
+
+.data-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.data-table th,
+.data-table td {
+  text-align: left;
+  vertical-align: top;
+  padding: 12px 14px;
+  border-bottom: 1px solid var(--green-line);
+  line-height: 1.5;
+}
+
+.data-table th {
+  width: 32%;
+  font-weight: 700;
+  color: var(--accent-light);
+}
+
+.data-table tr:last-child th,
+.data-table tr:last-child td { border-bottom: none; }
+
+/* ============================================================
+   HERO (Home / index)
+   ============================================================ */
+
+.hero {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  padding: 24px;
+}
+
+/* Solid-green block behind the titles → no pattern behind the text */
+.hero-inner {
+  background-color: var(--green-panel);
+  border-radius: 28px;
+  box-shadow: var(--shadow);
+  padding: 60px 70px;
+  max-width: 1100px;
+}
+
+.hero h1 {
+  font-size: clamp(1.3rem, 3vw, 2.3rem);
+  font-weight: 600;
+  line-height: 1.15;
+  margin: 0 0 24px;
+}
+
+.hero h2 {
+  font-size: clamp(1rem, 2.2vw, 1.7rem);
+  font-weight: 500;
+  margin: 0;
+  color: var(--accent-light);
+}
+
+/* Short Kurzprofil under the hero */
+.kurzprofil {
+  max-width: 760px;
+  margin: 28px auto 0;
+  background-color: var(--green-panel);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  padding: 24px 30px;
+  line-height: 1.65;
+}
+
+.kurzprofil h2 {
+  margin: 0 0 10px;
+  color: var(--accent-light);
+  font-size: 1.3rem;
+}
+
+/* ============================================================
+   HAMBURGER MENU – little circle, top-right.
+   On hover (or click) white circles spawn below, one per page.
+   ============================================================ */
+
+.menu {
+  position: fixed;
+  top: 22px;
+  left: 22px;
+  z-index: 100;
+}
+
+.menu-toggle {
+  position: relative;
+  width: 58px;
+  height: 58px;
+  border: none;
+  border-radius: 50%;
+  background: var(--white);
+  color: transparent;        /* hide the "+" text glyph */
+  font-size: 0;
+  cursor: pointer;
+  box-shadow: var(--shadow);
+  padding: 0;
+  transition: transform 0.25s ease;
+}
+
+/* Draw a perfectly centered plus with two bars */
+.menu-toggle::before,
+.menu-toggle::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  background: var(--green-panel);
+  border-radius: 2px;
+}
+
+.menu-toggle::before {            /* horizontal bar */
+  width: 24px;
+  height: 4px;
+  transform: translate(-50%, -50%);
+}
+
+.menu-toggle::after {             /* vertical bar */
+  width: 4px;
+  height: 24px;
+  transform: translate(-50%, -50%);
+}
+
+.menu:hover .menu-toggle,
+.menu.open .menu-toggle { transform: rotate(90deg); }
+
+.menu-items {
+  list-style: none;
+  margin: 14px 0 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 12px;
+}
+
+.menu-items li {
+  opacity: 0;
+  transform: translateY(-12px) scale(0.7);
+  pointer-events: none;
+  transition: opacity 0.25s ease, transform 0.25s ease;
+}
+
+/* Reveal the circles on hover or when toggled open */
+.menu:hover .menu-items li,
+.menu.open .menu-items li {
+  opacity: 1;
+  transform: translateY(0) scale(1);
+  pointer-events: auto;
+}
+
+/* Staggered appearance */
+.menu:hover .menu-items li:nth-child(1),
+.menu.open .menu-items li:nth-child(1) { transition-delay: 0.00s; }
+.menu:hover .menu-items li:nth-child(2),
+.menu.open .menu-items li:nth-child(2) { transition-delay: 0.05s; }
+.menu:hover .menu-items li:nth-child(3),
+.menu.open .menu-items li:nth-child(3) { transition-delay: 0.10s; }
+.menu:hover .menu-items li:nth-child(4),
+.menu.open .menu-items li:nth-child(4) { transition-delay: 0.15s; }
+.menu:hover .menu-items li:nth-child(5),
+.menu.open .menu-items li:nth-child(5) { transition-delay: 0.20s; }
+.menu:hover .menu-items li:nth-child(6),
+.menu.open .menu-items li:nth-child(6) { transition-delay: 0.25s; }
+
+.menu-items a {
+  width: 58px;
+  height: 58px;
+  border-radius: 50%;
+  background: var(--white);
+  color: var(--green-panel);
+  font-size: 0.78rem;
+  font-weight: 700;
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  box-shadow: var(--shadow);
+  transition: background 0.2s ease, color 0.2s ease, transform 0.2s ease;
+}
+
+.menu-items a:hover {
+  background: var(--accent-light);
+  transform: scale(1.12);
+}
+
+/* highlight the current page in the menu */
+.menu-items a.active {
+  background: var(--green-panel);
+  color: var(--white);
+  outline: 3px solid var(--white);
+}
+
+/* ============================================================
+   ICT SKILLS chart
+   ============================================================ */
+
+.skill-group { margin-bottom: 26px; }
+
+.skill {
+  display: grid;
+  grid-template-columns: 200px 1fr;
+  align-items: center;
+  gap: 16px;
+  padding: 8px 0;
+}
+
+.skill-name { font-weight: 700; }
+
+.skill-dots { display: flex; gap: 8px; }
+
+.dot {
+  width: 22px;
+  height: 22px;
+  border-radius: 5px;
+  background: rgba(255, 255, 255, 0.18);
+}
+
+.dot.on { background: var(--accent-light); }
+
+.dot.half {
+  background: linear-gradient(to right,
+    var(--accent-light) 50%, rgba(255, 255, 255, 0.18) 50%);
+}
+
+.legend {
+  font-size: 0.9rem;
+  color: var(--accent-light);
+  margin-top: 6px;
+}
+
+/* ============================================================
+   PROJECTS
+   ============================================================ */
+
+.project-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 20px;
+}
+
+.project {
+  background: var(--green-panel-2);
+  border-radius: var(--radius);
+  padding: 22px 24px;
+}
+
+.project h3 { margin-top: 0; }
+
+.tag {
+  display: inline-block;
+  font-size: 0.75rem;
+  font-weight: 700;
+  background: var(--green-line);
+  color: var(--white);
+  border-radius: 999px;
+  padding: 3px 10px;
+  margin-bottom: 10px;
+}
+
+/* ============================================================
+   DOCUMENTS – download list + login gate
+   ============================================================ */
+
+.doc-list { list-style: none; padding: 0; margin: 0; }
+
+.doc-list li {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 16px;
+  padding: 14px 0;
+  border-bottom: 1px solid var(--green-line);
+}
+
+.doc-list li:last-child { border-bottom: none; }
+
+.btn {
+  display: inline-block;
+  background: var(--accent-light);
+  color: var(--green-panel);
+  font-weight: 700;
+  text-decoration: none;
+  padding: 9px 18px;
+  border-radius: 999px;
+  border: none;
+  cursor: pointer;
+  transition: transform 0.15s ease, background 0.15s ease;
+}
+
+.btn:hover { transform: translateY(-2px); background: var(--white); color: var(--green-panel); }
+
+.login-form { max-width: 360px; }
+
+.login-form label { display: block; margin: 14px 0 6px; font-weight: 700; }
+
+.login-form input {
+  width: 100%;
+  padding: 11px 14px;
+  border-radius: 10px;
+  border: none;
+  font-size: 1rem;
+  font-family: inherit;
+}
+
+.login-error {
+  color: #ffd0d0;
+  margin-top: 14px;
+  min-height: 1.2em;
+  font-weight: 700;
+}
+
+.hidden { display: none; }
+
+/* ============================================================
+   CONTACT
+   ============================================================ */
+
+.contact-big {
+  font-size: clamp(1.3rem, 3vw, 2rem);
+  font-weight: 700;
+  word-break: break-word;
+}
+
+/* ---------- Responsive ---------- */
+
+@media (max-width: 640px) {
+  .hero-inner { padding: 40px 28px; }
+  .skill { grid-template-columns: 130px 1fr; gap: 10px; }
+  .data-table th { width: 40%; }
+}

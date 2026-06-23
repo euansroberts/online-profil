@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="de">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Euan Roberts | Software Engineer</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Gluten:wght@100..900&family=Roboto:wght@400;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles/style.css">
+    <script src="scripts/script.js"></script>
+    <style>
+      /* Kurzprofil text uses Roboto */
+      .kurzprofil p {
+        font-family: "Roboto", system-ui, sans-serif;
+        font-size: 1.12rem;
+        line-height: 1.7;
+      }
+
+      /* Fit the hero + Kurzprofil into one screen (no scrolling) */
+      body {
+        min-height: 100vh;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        gap: 44px;
+        padding: 90px 18px 28px;
+      }
+      .hero { min-height: auto; padding: 0; }
+      .hero-inner { padding: 40px 56px; }
+      .hero h1 { font-size: clamp(1.5rem, 3.3vw, 2.6rem); }
+      .hero h2 { font-size: clamp(1.1rem, 2.5vw, 1.9rem); }
+      .kurzprofil { margin: 0; }
+    </style>
+  </head>
+  <body style="--h: 146;">
+
+    <!-- Hamburger menu: little circle, top right. White circles spawn on hover. -->
+    <nav class="menu">
+      <button class="menu-toggle" aria-label="Menü öffnen">+</button>
+      <ul class="menu-items">
+        <li><a href="index.html" class="active">Home</a></li>
+        <li><a href="subpages/about_me.html">About</a></li>
+        <li><a href="subpages/projects.html">Projects</a></li>
+        <li><a href="subpages/ict_skills.html">ICT<br>Skills</a></li>
+        <li><a href="subpages/documents.html">Docs</a></li>
+        <li><a href="subpages/contact.html">Mail</a></li>
+      </ul>
+    </nav>
+
+    <header class="hero">
+      <div class="hero-inner">
+        <h1>Hallo, mein Name ist Euan S. Roberts und das ist mein Online-Bewerbungsprofil</h1>
+        <h2>Ich bin momentan ein Schüler bei der IMS Basel</h2>
+      </div>
+    </header>
+
+    <!-- Kurzprofil (Home) -->
+    <section class="kurzprofil">
+      <h2>Kurzprofil</h2>
+      <p>
+        Ich bin Schüler im 2. Jahr der Informatikmittelschule Basel und bewerbe
+        mich für ein 12-monatiges IMS-Praktikum bei Unblu Inc. Mit soliden
+        Kenntnissen in Java, Python, PHP, SQL und Webentwicklung sowie einer
+        Vorliebe für Backend-Entwicklung und Optimierung bringe ich genau die
+        Neugier und Lernbereitschaft mit, die Ihr internationales Team sucht.
+        Als zweisprachiger Entwickler (Englisch als Muttersprache) arbeite ich
+        analytisch, zuverlässig und gerne im Team – bereit, mein theoretisches
+        Wissen bei Unblu in echte Softwareprojekte und meine IPA einzubringen.
+      </p>
+    </section>
+
+  </body>
+</html>
