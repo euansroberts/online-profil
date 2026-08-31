@@ -12,6 +12,13 @@
   --h: 146;
   --white:  #ffffff;
 
+  /* Outfit für Titel, Navigation und UI; Roboto für Fliesstext. Beides
+     wird hier einmal festgelegt, damit keine Seite es lokal überschreibt. */
+  --font-head: "Outfit", system-ui, sans-serif;
+  --font-body: "Roboto", system-ui, sans-serif;
+
+  --sidebar-w: 248px;
+
   --radius: 16px;
   --shadow: 0 12px 30px rgba(0, 0, 0, 0.28);
 }
@@ -83,13 +90,28 @@ body {
 
   margin: 0;
   min-height: 100vh;
-  font-family: "Gluten", system-ui, sans-serif;
+  font-family: var(--font-body);
   color: var(--white);
+
+  /* Die Sidebar liegt fix am linken Rand, der Inhalt rückt daneben */
+  padding-left: var(--sidebar-w);
 
   /* Green background with a repeating pattern of small white plus signs */
   background-color: var(--green-page);
-  background-image: url("data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20width='44'%20height='44'%3E%3Cpath%20d='M20%2014h4v6h6v4h-6v6h-4v-6h-6v-4h6z'%20fill='%23ffffff'%20fill-opacity='0.4'/%3E%3C/svg%3E");
+  background-image: url("data:image/svg+xml,%3Csvg%20xmlns='http://www.w3.org/2000/svg'%20width='44'%20height='44'%3E%3Cpath%20d='M20%2014h4v6h6v4h-6v6h-4v-6h-6v-4h6z'%20fill='%23ffffff'%20fill-opacity='0.06'/%3E%3C/svg%3E");
   background-size: 44px 44px;
+}
+
+/* Titel, Navigation und UI-Elemente in Outfit, alles andere in Roboto */
+h1, h2, h3,
+.page-title,
+.page-subtitle,
+.sidebar,
+.btn,
+.tag,
+.skill-name,
+.data-table th {
+  font-family: var(--font-head);
 }
 
 /* ---------- Generic layout for content pages ---------- */
@@ -97,7 +119,7 @@ body {
 .page {
   max-width: 980px;
   margin: 0 auto;
-  padding: 110px 24px 80px;
+  padding: 64px 24px 72px;
 }
 
 .page-title {
@@ -219,125 +241,148 @@ a:hover { color: var(--white); }
 }
 
 /* ============================================================
-   HAMBURGER MENU – little circle, top-right.
-   On hover (or click) white circles spawn below, one per page.
+   SIDEBAR – feste Navigation am linken Rand.
+   Immer sichtbar, nichts klappt auf oder zu. Die aktuelle Seite ist
+   doppelt markiert: heller Grund plus Balken links (und im HTML
+   zusätzlich aria-current="page" für Screenreader).
    ============================================================ */
 
-.menu {
+.sidebar {
   position: fixed;
-  top: 22px;
-  left: 22px;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  width: var(--sidebar-w);
   z-index: 100;
-}
-
-.menu-toggle {
-  position: relative;
-  width: 58px;
-  height: 58px;
-  border: none;
-  border-radius: 50%;
-  background: var(--white);
-  color: transparent;        /* hide the "+" text glyph */
-  font-size: 0;
-  cursor: pointer;
-  box-shadow: var(--shadow);
-  padding: 0;
-  transition: transform 0.25s ease;
-}
-
-/* Draw a perfectly centered plus with two bars */
-.menu-toggle::before,
-.menu-toggle::after {
-  content: "";
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  background: var(--green-panel);
-  border-radius: 2px;
-}
-
-.menu-toggle::before {            /* horizontal bar */
-  width: 24px;
-  height: 4px;
-  transform: translate(-50%, -50%);
-}
-
-.menu-toggle::after {             /* vertical bar */
-  width: 4px;
-  height: 24px;
-  transform: translate(-50%, -50%);
-}
-
-.menu:hover .menu-toggle,
-.menu.open .menu-toggle { transform: rotate(90deg); }
-
-.menu-items {
-  list-style: none;
-  margin: 14px 0 0;
-  padding: 0;
   display: flex;
   flex-direction: column;
-  align-items: center;
-  gap: 12px;
+  background-color: var(--green-panel);
+  box-shadow: 4px 0 24px rgba(0, 0, 0, 0.25);
+  overflow-y: auto;
+  /* Eigener Name = eigene Gruppe: die Sidebar bleibt beim Seitenwechsel
+     stehen, während nur der Inhalt weg- und hereinfliegt. */
+  view-transition-name: sidebar;
 }
 
-.menu-items li {
-  opacity: 0;
-  transform: translateY(-12px) scale(0.7);
-  pointer-events: none;
-  transition: opacity 0.25s ease, transform 0.25s ease;
-}
-
-/* Reveal the circles on hover or when toggled open */
-.menu:hover .menu-items li,
-.menu.open .menu-items li {
-  opacity: 1;
-  transform: translateY(0) scale(1);
-  pointer-events: auto;
-}
-
-/* Staggered appearance */
-.menu:hover .menu-items li:nth-child(1),
-.menu.open .menu-items li:nth-child(1) { transition-delay: 0.00s; }
-.menu:hover .menu-items li:nth-child(2),
-.menu.open .menu-items li:nth-child(2) { transition-delay: 0.05s; }
-.menu:hover .menu-items li:nth-child(3),
-.menu.open .menu-items li:nth-child(3) { transition-delay: 0.10s; }
-.menu:hover .menu-items li:nth-child(4),
-.menu.open .menu-items li:nth-child(4) { transition-delay: 0.15s; }
-.menu:hover .menu-items li:nth-child(5),
-.menu.open .menu-items li:nth-child(5) { transition-delay: 0.20s; }
-.menu:hover .menu-items li:nth-child(6),
-.menu.open .menu-items li:nth-child(6) { transition-delay: 0.25s; }
-
-.menu-items a {
-  width: 58px;
-  height: 58px;
-  border-radius: 50%;
-  background: var(--white);
-  color: var(--green-panel);
-  font-size: 0.78rem;
-  font-weight: 700;
-  text-decoration: none;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  text-align: center;
-  box-shadow: var(--shadow);
-  transition: background 0.2s ease, color 0.2s ease, transform 0.2s ease;
-}
-
-.menu-items a:hover {
-  background: var(--accent-light);
-  transform: scale(1.12);
-}
-
-/* highlight the current page in the menu */
-.menu-items a.active {
-  background: var(--green-panel);
+.sidebar-brand {
+  display: block;
+  padding: 30px 24px 24px;
   color: var(--white);
-  outline: 3px solid var(--white);
+  text-decoration: none;
+  border-bottom: 1px solid var(--green-line);
 }
+
+.sidebar-brand:hover .brand-name { color: var(--accent-light); }
+
+.brand-name {
+  display: block;
+  font-size: 1.22rem;
+  font-weight: 800;
+  line-height: 1.2;
+  transition: color 0.18s ease;
+}
+
+.brand-role {
+  display: block;
+  margin-top: 5px;
+  font-size: 0.82rem;
+  color: var(--accent-light);
+}
+
+.nav-list {
+  list-style: none;
+  margin: 0;
+  padding: 14px 0;
+  flex: 1;
+}
+
+.nav-list a {
+  display: block;
+  padding: 11px 24px;
+  border-left: 4px solid transparent;
+  color: var(--white);
+  font-weight: 600;
+  text-decoration: none;
+  transition: background 0.18s ease, color 0.18s ease;
+}
+
+.nav-list a:hover,
+.nav-list a:focus-visible {
+  background: rgba(255, 255, 255, 0.10);
+  color: var(--white);
+}
+
+/* Aktuelle Seite */
+.nav-list a.active {
+  background: rgba(255, 255, 255, 0.15);
+  border-left-color: var(--accent-light);
+  color: var(--accent-light);
+  font-weight: 800;
+}
+
+.sidebar-foot {
+  padding: 16px 24px 20px;
+  border-top: 1px solid var(--green-line);
+  font-size: 0.8rem;
+  line-height: 1.6;
+}
+
+.sidebar-foot a { word-break: break-all; }
+
+/* ============================================================
+   HOME – Hero und Kurzprofil, mittig auf einer Bildschirmhöhe
+   ============================================================ */
+
+.page-home {
+  min-height: calc(100vh - 110px);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 40px;
+}
+
+.page-home .hero {
+  min-height: auto;
+  padding: 0;
+  width: 100%;
+}
+
+.page-home .hero-inner {
+  padding: 46px 56px;
+  width: 100%;
+  /* gleiche Breite wie das Kurzprofil darunter -> bündige Kanten */
+  max-width: 760px;
+}
+
+.page-home .hero h1 {
+  font-size: clamp(2rem, 5vw, 3.4rem);
+  font-weight: 800;
+  letter-spacing: -0.01em;
+  margin-bottom: 14px;
+}
+
+.page-home .hero h2 {
+  font-size: clamp(1rem, 2.2vw, 1.35rem);
+  font-weight: 500;
+}
+
+.page-home .kurzprofil { margin: 0; width: 100%; }
+
+/* ============================================================
+   FUSSZEILE
+   ============================================================ */
+
+.site-footer {
+  max-width: 980px;
+  margin: 0 auto;
+  padding: 0 24px 40px;
+  text-align: center;
+  font-size: 0.85rem;
+  color: var(--accent-light);
+}
+
+.site-footer p { margin: 0; }
 
 /* ============================================================
    ICT SKILLS chart
@@ -345,15 +390,49 @@ a:hover { color: var(--white); }
 
 .skill-group { margin-bottom: 26px; }
 
-.skill {
+/* Vier Spalten: Name | Selbsteinschätzung | Modulnote | Modul und Note */
+.skill,
+.skill-head {
   display: grid;
-  grid-template-columns: 200px 1fr;
+  grid-template-columns: 170px 160px 160px 1fr;
   align-items: center;
-  gap: 16px;
+  /* grosszügiger Abstand, damit die zwei Kästchenreihen nicht als eine
+     durchgehende Reihe von zehn gelesen werden */
+  gap: 30px;
   padding: 8px 0;
 }
 
+/* Spaltentitel über der ersten Zeile jeder Gruppe */
+.skill-head {
+  padding-bottom: 10px;
+  margin-bottom: 6px;
+  border-bottom: 1px solid var(--green-line);
+  font-family: var(--font-head);
+  font-size: 0.78rem;
+  font-weight: 700;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  color: var(--accent-light);
+}
+
 .skill-name { font-weight: 700; }
+
+/* Modulnummer und Note rechts der Kästchen */
+.skill-note {
+  font-family: var(--font-head);
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--accent-light);
+}
+
+/* Kein passendes Modul oder Note noch offen */
+.skill-note-empty { opacity: 0.55; font-weight: 500; }
+
+.skill-dots-empty {
+  opacity: 0.55;
+  font-weight: 700;
+  padding-left: 6px;
+}
 
 .skill-dots { display: flex; gap: 8px; }
 
@@ -403,7 +482,15 @@ a:hover { color: var(--white); }
   color: var(--white);
   border-radius: 999px;
   padding: 3px 10px;
-  margin-bottom: 10px;
+  margin: 0 6px 10px 0;
+}
+
+/* Projekt liegt derzeit auf Eis */
+.tag-paused {
+  background: transparent;
+  color: #ffd98a;
+  box-shadow: inset 0 0 0 1.5px #ffd98a;
+  letter-spacing: 0.06em;
 }
 
 /* ============================================================
@@ -458,6 +545,21 @@ a:hover { color: var(--white); }
   font-weight: 700;
 }
 
+/* Bar with the logout button, shown on the protected pages once unlocked */
+.logout-bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  margin: 0 0 28px;
+  padding: 12px 20px;
+  border: 1px solid var(--green-line);
+  border-radius: 999px;
+  background-color: var(--green-panel);
+  box-shadow: var(--shadow);
+  font-weight: 700;
+}
+
 .hidden { display: none; }
 
 /* ============================================================
@@ -472,8 +574,119 @@ a:hover { color: var(--white); }
 
 /* ---------- Responsive ---------- */
 
+/* Schmale Fenster: die Sidebar wird zur Kopfleiste über dem Inhalt */
+@media (max-width: 860px) {
+  body { padding-left: 0; }
+
+  .sidebar {
+    position: static;
+    width: auto;
+    box-shadow: var(--shadow);
+    view-transition-name: none;
+  }
+
+  .sidebar-brand { padding: 20px 20px 14px; }
+
+  .nav-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 4px;
+    padding: 10px 14px 14px;
+  }
+
+  .nav-list a {
+    padding: 8px 14px;
+    border-left: none;
+    border-bottom: 3px solid transparent;
+    border-radius: 8px;
+  }
+
+  .nav-list a.active {
+    border-left-color: transparent;
+    border-bottom-color: var(--accent-light);
+  }
+
+  .sidebar-foot { display: none; }
+
+  .page-home { min-height: 0; padding-top: 40px; }
+}
+
+/* Schmal: die Skill-Zeilen stapeln, jede Kästchenreihe bekommt ihren Titel */
+@media (max-width: 760px) {
+  .skill-head { display: none; }
+
+  .skill {
+    grid-template-columns: 1fr;
+    gap: 6px;
+    padding: 14px 0;
+    border-bottom: 1px solid var(--green-line);
+  }
+
+  .skill-group .skill:last-child { border-bottom: none; }
+
+  /* flex-basis 100% erzwingt einen Umbruch vor den Kästchen */
+  .skill-dots { flex-wrap: wrap; }
+
+  .skill-dots::before {
+    content: attr(data-col);
+    flex: 0 0 100%;
+    margin-bottom: 4px;
+    font-family: var(--font-head);
+    font-size: 0.72rem;
+    font-weight: 700;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    color: var(--accent-light);
+    opacity: 0.85;
+  }
+}
+
 @media (max-width: 640px) {
   .hero-inner { padding: 40px 28px; }
-  .skill { grid-template-columns: 130px 1fr; gap: 10px; }
+  .page-home .hero-inner { padding: 34px 26px; }
   .data-table th { width: 40%; }
+}
+
+/* ---------- Druck: heller Grund, keine Navigation ---------- */
+
+@media print {
+  body {
+    padding-left: 0;
+    background-color: #fff;
+    background-image: none;
+    color: #111;
+  }
+
+  .sidebar,
+  .site-footer,
+  .btn,
+  .login-form,
+  .logout-bar { display: none !important; }
+
+  .page { padding: 0; max-width: none; }
+
+  .card,
+  .hero-inner,
+  .kurzprofil,
+  .project {
+    background-color: #fff;
+    color: #111;
+    box-shadow: none;
+    border: 1px solid #bbb;
+    break-inside: avoid;
+  }
+
+  .page-title,
+  .page-subtitle,
+  .card h2,
+  .data-table th,
+  .legend,
+  a { color: #111; }
+
+  .data-table th,
+  .data-table td { border-bottom: 1px solid #ddd; }
+
+  .tag { background: #eee; color: #111; }
+  .dot { background: #ddd; }
+  .dot.on { background: #555; }
 }

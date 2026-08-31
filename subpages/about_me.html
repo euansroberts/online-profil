@@ -3,94 +3,142 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>About me | Euan Roberts</title>
+    <title>Über mich | Euan S. Roberts</title>
+    <meta name="description" content="Lebenslauf von Euan S. Roberts: Schulbildung, Sprach- und Informatikkenntnisse, Freizeitinteressen und Referenzen." />
+    <meta name="author" content="Euan S. Roberts" />
+    <link rel="icon" href="../favicon.svg" type="image/svg+xml" />
+
+    <!-- Vorschau, wenn der Link per Mail, Teams oder Chat geteilt wird -->
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="Euan S. Roberts – Online-Bewerbungsprofil" />
+    <meta property="og:locale" content="de_CH" />
+    <meta property="og:title" content="Über mich – Euan S. Roberts" />
+    <meta property="og:description" content="Lebenslauf von Euan S. Roberts: Schulbildung, Sprach- und Informatikkenntnisse, Freizeitinteressen und Referenzen." />
+    <meta property="og:url" content="https://euansroberts.github.io/online-profil/subpages/about_me.html" />
+    <meta name="twitter:card" content="summary" />
+
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Gluten:wght@100..900&family=Roboto:wght@400;500&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300..800&family=Roboto:wght@400;500&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="../styles/style.css">
-    <script src="../scripts/script.js"></script>
-    <style>
-      /* The detail values (white text) use Roboto; labels keep Gluten */
-      .data-table td { font-family: "Roboto", system-ui, sans-serif; }
-    </style>
+    <script src="../scripts/script.js" defer></script>
   </head>
   <body style="--h: 152.5;">
 
-    <nav class="menu">
-      <button class="menu-toggle" aria-label="Menü öffnen">+</button>
-      <ul class="menu-items">
-        <li><a href="../index.html">Home</a></li>
-        <li><a href="about_me.html" class="active">About</a></li>
-        <li><a href="projects.html">Projects</a></li>
-        <li><a href="ict_skills.html">ICT<br>Skills</a></li>
-        <li><a href="documents.html">Docs</a></li>
-        <li><a href="contact.html">Mail</a></li>
+    <nav class="sidebar" aria-label="Hauptnavigation">
+      <a class="sidebar-brand" href="../index.html">
+        <span class="brand-name">Euan S. Roberts</span>
+        <span class="brand-role">Online-Bewerbungsprofil</span>
+      </a>
+      <ul class="nav-list">
+        <li><a href="../index.html">Start</a></li>
+        <li><a href="about_me.html" class="active" aria-current="page">Über mich</a></li>
+        <li><a href="projects.html">Projekte</a></li>
+        <li><a href="ict_skills.html">ICT-Kenntnisse</a></li>
+        <li><a href="documents.html">Dokumente</a></li>
+        <li><a href="contact.html">Kontakt</a></li>
       </ul>
+      <div class="sidebar-foot">
+        <a href="mailto:euan.s.roberts@icloud.com">euan.s.roberts@icloud.com</a>
+      </div>
     </nav>
 
     <main class="page">
-      <h1 class="page-title">About me</h1>
-      <p class="page-subtitle">Mein Lebenslauf</p>
+      <h1 class="page-title">Über mich</h1>
+      <p class="page-subtitle">Mein Lebenslauf – privater Bereich, nur mit Passwort zugänglich</p>
 
-      <section class="card">
-        <h2>Personalien</h2>
-        <table class="data-table">
-          <tr><th>Name</th><td>Euan Stirling Roberts</td></tr>
-          <tr><th>Adresse</th><td>In den Reben 5, Diepflingen</td></tr>
-          <tr><th>Mobile</th><td>+41 77 487 05 26</td></tr>
-          <tr><th>E-Mail</th><td><a href="mailto:euan.s.roberts@icloud.com">euan.s.roberts@icloud.com</a></td></tr>
-          <tr><th>Geburtsdatum</th><td>22. Juli 2007</td></tr>
-          <tr><th>Heimatort</th><td>Manchester, GB</td></tr>
-        </table>
+      <!-- Login box: this page holds personal data, so it is password protected -->
+      <section class="card" id="login-box">
+        <h2>🔒 Anmeldung erforderlich</h2>
+        <p>
+          Diese Seite enthält persönliche Daten. Bitte geben Sie das Passwort
+          ein, um meinen Lebenslauf anzuzeigen.
+        </p>
+        <form class="login-form" id="login-form">
+          <label for="password">Passwort</label>
+          <input type="password" id="password" name="password" autocomplete="current-password" required>
+          <div class="login-error" id="login-error" role="alert"></div>
+          <noscript>
+            <p class="login-error">Für den geschützten Bereich wird JavaScript benötigt.</p>
+          </noscript>
+          <p><button type="submit" class="btn">Anmelden</button></p>
+        </form>
       </section>
 
-      <section class="card">
-        <h2>Schulbildung</h2>
-        <table class="data-table">
-          <tr><th>seit 2023</th><td>Informatikmittelschule Basel (IMS)</td></tr>
-          <tr><th>2020 – 2023</th><td>Sekundarschulabschluss (Niveau E)<br>Sekundarschule Holbein, Basel</td></tr>
-          <tr><th>2016 – 2020</th><td>Primarschulen CH<br>Hinter Garten, Riehen · Brunnmatt, Basel</td></tr>
-          <tr><th>2011 – 2015</th><td>Primarschulen GB<br>Heyes Lane, Manchester · Nettlebed, Oxford</td></tr>
-        </table>
-      </section>
+      <!-- Sichtbar, sobald man angemeldet ist -->
+      <div class="logout-bar hidden" id="logout-bar">
+        <span>🔓 Angemeldet</span>
+        <button type="button" class="btn" id="logout-btn">Abmelden</button>
+      </div>
 
-      <section class="card">
-        <h2>Sprachkenntnisse</h2>
-        <table class="data-table">
-          <tr><th>Englisch</th><td>Muttersprache</td></tr>
-          <tr><th>Deutsch</th><td>Schulkenntnisse, Unterricht seit 10 Jahren</td></tr>
-          <tr><th>Französisch</th><td>Schulkenntnisse, Unterricht seit 11 Jahren</td></tr>
-        </table>
-      </section>
+      <!-- Personal data, revealed after login -->
+      <div class="hidden" id="locked-area">
 
-      <section class="card">
-        <h2>Informatikkenntnisse</h2>
-        <table class="data-table">
-          <tr><th>Office 365</th><td>Sehr gute Kenntnisse (Word, Teams, PowerPoint, OneDrive, OneNote, usw.)</td></tr>
-          <tr><th>Betriebssysteme</th><td>Sehr gute Kenntnisse: Windows, Linux (Arch-basiert)</td></tr>
-          <tr><th>Programmiersprachen</th><td>Gute Kenntnisse: Java, HTML, CSS, Python, PHP, SQL<br>Mittlere Kenntnisse: JavaScript, Golang</td></tr>
-          <tr><th>Sonstige Kenntnisse</th><td>Git, Docker, MySQL, MongoDB, Networking, JSON, OOP, Sysadmin</td></tr>
-        </table>
-      </section>
+        <section class="card">
+          <h2>Personalien</h2>
+          <table class="data-table">
+            <tr><th>Name</th><td>Euan Stirling Roberts</td></tr>
+            <tr><th>Adresse</th><td>In den Reben 5, Diepflingen</td></tr>
+            <tr><th>Mobile</th><td>+41 77 487 05 26</td></tr>
+            <tr><th>E-Mail</th><td><a href="mailto:euan.s.roberts@icloud.com">euan.s.roberts@icloud.com</a></td></tr>
+            <tr><th>Geburtsdatum</th><td>22. Juli 2007</td></tr>
+            <tr><th>Heimatort</th><td>Manchester, GB</td></tr>
+          </table>
+        </section>
 
-      <section class="card">
-        <h2>Freizeitinteressen</h2>
-        <table class="data-table">
-          <tr><th>Reisen</th><td>Europa, Nordamerika, Asien</td></tr>
-          <tr><th>Sport</th><td>Wandern, Training</td></tr>
-          <tr><th>Coding</th><td>Private Projekte</td></tr>
-          <tr><th>Sonstiges</th><td>Videospiele</td></tr>
-        </table>
-      </section>
+        <section class="card">
+          <h2>Schulbildung</h2>
+          <table class="data-table">
+            <tr><th>seit 2023</th><td>Informatikmittelschule Basel (IMS)</td></tr>
+            <tr><th>2020 – 2023</th><td>Sekundarschulabschluss (Niveau E)<br>Sekundarschule Holbein, Basel</td></tr>
+            <tr><th>2016 – 2020</th><td>Primarschulen CH<br>Hinter Garten, Riehen · Brunnmatt, Basel</td></tr>
+            <tr><th>2011 – 2015</th><td>Primarschulen GB<br>Heyes Lane, Manchester · Nettlebed, Oxford</td></tr>
+          </table>
+        </section>
 
-      <section class="card">
-        <h2>Referenzen</h2>
-        <table class="data-table">
-          <tr><th>Informatik-Lehrerin</th><td>Béatrice Duc, <a href="mailto:beatrice.duc@edubs.ch">beatrice.duc@edubs.ch</a></td></tr>
-          <tr><th>Klassenlehrperson</th><td>Imerio Bischofsberger, <a href="mailto:i.bischofsberger@edubs.ch">i.bischofsberger@edubs.ch</a></td></tr>
-        </table>
-      </section>
+        <section class="card">
+          <h2>Sprachkenntnisse</h2>
+          <table class="data-table">
+            <tr><th>Englisch</th><td>Muttersprache</td></tr>
+            <tr><th>Deutsch</th><td>Schulkenntnisse, Unterricht seit 10 Jahren</td></tr>
+            <tr><th>Französisch</th><td>Schulkenntnisse, Unterricht seit 11 Jahren</td></tr>
+          </table>
+        </section>
+
+        <section class="card">
+          <h2>Informatikkenntnisse</h2>
+          <table class="data-table">
+            <tr><th>Office 365</th><td>Sehr gute Kenntnisse (Word, Teams, PowerPoint, OneDrive, OneNote, usw.)</td></tr>
+            <tr><th>Betriebssysteme</th><td>Sehr gute Kenntnisse: Windows, Linux (Arch-basiert)</td></tr>
+            <tr><th>Programmiersprachen</th><td>Gute Kenntnisse: Java, HTML, CSS, Python, PHP, SQL<br>Mittlere Kenntnisse: JavaScript, Golang</td></tr>
+            <tr><th>Sonstige Kenntnisse</th><td>Git, Docker, MySQL, MongoDB, Networking, JSON, OOP, Sysadmin</td></tr>
+          </table>
+        </section>
+
+        <section class="card">
+          <h2>Freizeitinteressen</h2>
+          <table class="data-table">
+            <tr><th>Reisen</th><td>Europa, Nordamerika, Asien</td></tr>
+            <tr><th>Sport</th><td>Wandern, Training</td></tr>
+            <tr><th>Coding</th><td>Private Projekte</td></tr>
+            <tr><th>Sonstiges</th><td>Videospiele</td></tr>
+          </table>
+        </section>
+
+        <section class="card">
+          <h2>Referenzen</h2>
+          <table class="data-table">
+            <tr><th>Informatik-Lehrerin</th><td>Béatrice Duc, <a href="mailto:beatrice.duc@edubs.ch">beatrice.duc@edubs.ch</a></td></tr>
+            <tr><th>Deutsch-Lehrer</th><td>Simon Kunz, <a href="mailto:simon.kunz@edubs.ch">simon.kunz@edubs.ch</a></td></tr>
+          </table>
+        </section>
+
+      </div>
 
     </main>
+
+    <footer class="site-footer">
+      <p>© 2026 Euan S. Roberts · Online-Bewerbungsprofil IMS Basel · Stand: August 2026</p>
+    </footer>
   </body>
 </html>

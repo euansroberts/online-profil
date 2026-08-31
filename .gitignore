@@ -1,0 +1,8 @@
+# Klartext-PDFs und Kursunterlagen – gehören nicht auf die Website.
+# pdf-quellen/IDAF_Bewerbungsdossier.pdf ist der Word-Export, aus dem
+# tools/build_documents.py die fertigen Dokumente unter fertig/ erzeugt.
+# Veröffentlicht wird nur unterlagen/*.enc (verschlüsselt).
+pdf-quellen/
+
+# Editor / tooling
+.DS_Store

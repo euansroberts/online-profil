@@ -3,102 +3,241 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>ICT Skills | Euan Roberts</title>
+    <title>ICT-Kenntnisse | Euan S. Roberts</title>
+    <meta name="description" content="Informatikkompetenzüberblick von Euan S. Roberts: Programmiersprachen, Betriebssysteme, Tools und weitere Kenntnisse." />
+    <meta name="author" content="Euan S. Roberts" />
+    <link rel="icon" href="../favicon.svg" type="image/svg+xml" />
+
+    <!-- Vorschau, wenn der Link per Mail, Teams oder Chat geteilt wird -->
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="Euan S. Roberts – Online-Bewerbungsprofil" />
+    <meta property="og:locale" content="de_CH" />
+    <meta property="og:title" content="ICT-Kenntnisse – Euan S. Roberts" />
+    <meta property="og:description" content="Informatikkompetenzüberblick von Euan S. Roberts: Programmiersprachen, Betriebssysteme, Tools und weitere Kenntnisse." />
+    <meta property="og:url" content="https://euansroberts.github.io/online-profil/subpages/ict_skills.html" />
+    <meta name="twitter:card" content="summary" />
+
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Gluten:wght@100..900&family=Roboto:wght@400;500&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300..800&family=Roboto:wght@400;500&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="../styles/style.css">
-    <script src="../scripts/script.js"></script>
-    <style>
-      /* The Skala legend uses Roboto */
-      .legend { font-family: "Roboto", system-ui, sans-serif; }
-    </style>
+    <script src="../scripts/script.js" defer></script>
   </head>
   <body style="--h: 165.5;">
 
-    <nav class="menu">
-      <button class="menu-toggle" aria-label="Menü öffnen">+</button>
-      <ul class="menu-items">
-        <li><a href="../index.html">Home</a></li>
-        <li><a href="about_me.html">About</a></li>
-        <li><a href="projects.html">Projects</a></li>
-        <li><a href="ict_skills.html" class="active">ICT<br>Skills</a></li>
-        <li><a href="documents.html">Docs</a></li>
-        <li><a href="contact.html">Mail</a></li>
+    <nav class="sidebar" aria-label="Hauptnavigation">
+      <a class="sidebar-brand" href="../index.html">
+        <span class="brand-name">Euan S. Roberts</span>
+        <span class="brand-role">Online-Bewerbungsprofil</span>
+      </a>
+      <ul class="nav-list">
+        <li><a href="../index.html">Start</a></li>
+        <li><a href="about_me.html">Über mich</a></li>
+        <li><a href="projects.html">Projekte</a></li>
+        <li><a href="ict_skills.html" class="active" aria-current="page">ICT-Kenntnisse</a></li>
+        <li><a href="documents.html">Dokumente</a></li>
+        <li><a href="contact.html">Kontakt</a></li>
       </ul>
+      <div class="sidebar-foot">
+        <a href="mailto:euan.s.roberts@icloud.com">euan.s.roberts@icloud.com</a>
+      </div>
     </nav>
 
     <main class="page">
-      <h1 class="page-title">ICT Skills</h1>
+      <h1 class="page-title">ICT-Kenntnisse</h1>
       <p class="page-subtitle">Mein Informatikkompetenzüberblick</p>
 
       <section class="card">
         <h2>Programmiersprachen</h2>
         <div class="skill-group">
-          <div class="skill"><span class="skill-name">PHP</span>
-            <span class="skill-dots"><i class="dot on"></i><i class="dot on"></i><i class="dot on"></i><i class="dot on"></i><i class="dot"></i></span></div>
-          <div class="skill"><span class="skill-name">Java</span>
-            <span class="skill-dots"><i class="dot on"></i><i class="dot on"></i><i class="dot on"></i><i class="dot on"></i><i class="dot"></i></span></div>
-          <div class="skill"><span class="skill-name">Python</span>
-            <span class="skill-dots"><i class="dot on"></i><i class="dot on"></i><i class="dot on"></i><i class="dot on"></i><i class="dot"></i></span></div>
-          <div class="skill"><span class="skill-name">SQL</span>
-            <span class="skill-dots"><i class="dot on"></i><i class="dot on"></i><i class="dot on"></i><i class="dot on"></i><i class="dot"></i></span></div>
-          <div class="skill"><span class="skill-name">HTML</span>
-            <span class="skill-dots"><i class="dot on"></i><i class="dot on"></i><i class="dot on"></i><i class="dot"></i><i class="dot"></i></span></div>
-          <div class="skill"><span class="skill-name">JavaScript</span>
-            <span class="skill-dots"><i class="dot on"></i><i class="dot on"></i><i class="dot on"></i><i class="dot"></i><i class="dot"></i></span></div>
-          <div class="skill"><span class="skill-name">CSS</span>
-            <span class="skill-dots"><i class="dot on"></i><i class="dot on"></i><i class="dot half"></i><i class="dot"></i><i class="dot"></i></span></div>
-          <div class="skill"><span class="skill-name">Golang</span>
-            <span class="skill-dots"><i class="dot on"></i><i class="dot half"></i><i class="dot"></i><i class="dot"></i><i class="dot"></i></span></div>
+          <div class="skill-head" aria-hidden="true">
+            <span></span>
+            <span>Selbsteinschätzung</span>
+            <span>Modulnote</span>
+            <span></span>
+          </div>
+          <div class="skill">
+            <span class="skill-name">Java</span>
+            <span class="skill-dots" data-col="Selbsteinschätzung"><i class="dot on"></i><i class="dot on"></i><i class="dot on"></i><i class="dot on"></i><i class="dot"></i></span>
+            <span class="skill-dots" data-col="Modulnote"><i class="dot on"></i><i class="dot on"></i><i class="dot on"></i><i class="dot on"></i><i class="dot"></i></span>
+            <span class="skill-note" title="M319 – Applikationen entwerfen und implementieren">M319 · 5.0</span>
+          </div>
+          <div class="skill">
+            <span class="skill-name">Python</span>
+            <span class="skill-dots" data-col="Selbsteinschätzung"><i class="dot on"></i><i class="dot on"></i><i class="dot on"></i><i class="dot on"></i><i class="dot"></i></span>
+            <span class="skill-dots" data-col="Modulnote"><i class="dot on"></i><i class="dot on"></i><i class="dot on"></i><i class="dot on"></i><i class="dot"></i></span>
+            <span class="skill-note" title="M122 – Abläufe mit einer Scriptsprache automatisieren">M122 · 5.0</span>
+          </div>
+          <div class="skill">
+            <span class="skill-name">SQL</span>
+            <span class="skill-dots" data-col="Selbsteinschätzung"><i class="dot on"></i><i class="dot on"></i><i class="dot on"></i><i class="dot on"></i><i class="dot"></i></span>
+            <span class="skill-dots" data-col="Modulnote"><i class="dot on"></i><i class="dot on"></i><i class="dot on"></i><i class="dot on"></i><i class="dot half"></i></span>
+            <span class="skill-note" title="M164 – Datenbanken erstellen und Daten einfügen">M164 · 5.5</span>
+          </div>
+          <div class="skill">
+            <span class="skill-name">JavaScript</span>
+            <span class="skill-dots" data-col="Selbsteinschätzung"><i class="dot on"></i><i class="dot on"></i><i class="dot on"></i><i class="dot"></i><i class="dot"></i></span>
+            <span class="skill-dots skill-dots-empty" data-col="Modulnote">–</span>
+            <span class="skill-note skill-note-empty" title="M294 – Frontend einer interaktiven Webapplikation realisieren">M294 · noch offen</span>
+          </div>
+          <div class="skill">
+            <span class="skill-name">HTML</span>
+            <span class="skill-dots" data-col="Selbsteinschätzung"><i class="dot on"></i><i class="dot on"></i><i class="dot on"></i><i class="dot on"></i><i class="dot"></i></span>
+            <span class="skill-dots" data-col="Modulnote"><i class="dot on"></i><i class="dot on"></i><i class="dot on"></i><i class="dot on"></i><i class="dot half"></i></span>
+            <span class="skill-note" title="M293 – Webauftritt erstellen und veröffentlichen">M293 · 5.5</span>
+          </div>
+          <div class="skill">
+            <span class="skill-name">CSS</span>
+            <span class="skill-dots" data-col="Selbsteinschätzung"><i class="dot on"></i><i class="dot on"></i><i class="dot half"></i><i class="dot"></i><i class="dot"></i></span>
+            <span class="skill-dots" data-col="Modulnote"><i class="dot on"></i><i class="dot on"></i><i class="dot on"></i><i class="dot on"></i><i class="dot half"></i></span>
+            <span class="skill-note" title="M293 – Webauftritt erstellen und veröffentlichen">M293 · 5.5</span>
+          </div>
+          <div class="skill">
+            <span class="skill-name">PHP</span>
+            <span class="skill-dots" data-col="Selbsteinschätzung"><i class="dot on"></i><i class="dot on"></i><i class="dot on"></i><i class="dot on"></i><i class="dot"></i></span>
+            <span class="skill-dots" data-col="Modulnote"><i class="dot on"></i><i class="dot on"></i><i class="dot on"></i><i class="dot on"></i><i class="dot half"></i></span>
+            <span class="skill-note" title="M295 – Backend für Applikationen realisieren">M295 · 5.5</span>
+          </div>
+          <div class="skill">
+            <span class="skill-name">C#</span>
+            <span class="skill-dots skill-dots-empty" data-col="Selbsteinschätzung">–</span>
+            <span class="skill-dots skill-dots-empty" data-col="Modulnote">–</span>
+            <span class="skill-note skill-note-empty">noch offen</span>
+          </div>
+          <div class="skill">
+            <span class="skill-name">Golang</span>
+            <span class="skill-dots" data-col="Selbsteinschätzung"><i class="dot on"></i><i class="dot half"></i><i class="dot"></i><i class="dot"></i><i class="dot"></i></span>
+            <span class="skill-dots skill-dots-empty" data-col="Modulnote">–</span>
+            <span class="skill-note skill-note-empty">kein Modul</span>
+          </div>
         </div>
       </section>
 
       <section class="card">
         <h2>Betriebssysteme &amp; Office</h2>
         <div class="skill-group">
-          <div class="skill"><span class="skill-name">Windows</span>
-            <span class="skill-dots"><i class="dot on"></i><i class="dot on"></i><i class="dot on"></i><i class="dot on"></i><i class="dot"></i></span></div>
-          <div class="skill"><span class="skill-name">Office 365</span>
-            <span class="skill-dots"><i class="dot on"></i><i class="dot on"></i><i class="dot on"></i><i class="dot on"></i><i class="dot"></i></span></div>
-          <div class="skill"><span class="skill-name">Linux (Arch)</span>
-            <span class="skill-dots"><i class="dot on"></i><i class="dot on"></i><i class="dot on"></i><i class="dot half"></i><i class="dot"></i></span></div>
-          <div class="skill"><span class="skill-name">macOS</span>
-            <span class="skill-dots"><i class="dot on"></i><i class="dot"></i><i class="dot"></i><i class="dot"></i><i class="dot"></i></span></div>
+          <div class="skill-head" aria-hidden="true">
+            <span></span>
+            <span>Selbsteinschätzung</span>
+            <span>Modulnote</span>
+            <span></span>
+          </div>
+          <div class="skill">
+            <span class="skill-name">Linux (Arch)</span>
+            <span class="skill-dots" data-col="Selbsteinschätzung"><i class="dot on"></i><i class="dot on"></i><i class="dot on"></i><i class="dot on"></i><i class="dot"></i></span>
+            <span class="skill-dots" data-col="Modulnote"><i class="dot on"></i><i class="dot on"></i><i class="dot on"></i><i class="dot on"></i><i class="dot"></i></span>
+            <span class="skill-note" title="M187 – ICT-Arbeitsplatz mit Betriebssystem in Betrieb nehmen">M187 · 5.0</span>
+          </div>
+          <div class="skill">
+            <span class="skill-name">Windows</span>
+            <span class="skill-dots" data-col="Selbsteinschätzung"><i class="dot on"></i><i class="dot on"></i><i class="dot on"></i><i class="dot on"></i><i class="dot"></i></span>
+            <span class="skill-dots" data-col="Modulnote"><i class="dot on"></i><i class="dot on"></i><i class="dot on"></i><i class="dot on"></i><i class="dot"></i></span>
+            <span class="skill-note" title="M187 – ICT-Arbeitsplatz mit Betriebssystem in Betrieb nehmen">M187 · 5.0</span>
+          </div>
+          <div class="skill">
+            <span class="skill-name">macOS</span>
+            <span class="skill-dots" data-col="Selbsteinschätzung"><i class="dot on"></i><i class="dot"></i><i class="dot"></i><i class="dot"></i><i class="dot"></i></span>
+            <span class="skill-dots skill-dots-empty" data-col="Modulnote">–</span>
+            <span class="skill-note skill-note-empty">kein Modul</span>
+          </div>
+          <div class="skill">
+            <span class="skill-name">Office 365</span>
+            <span class="skill-dots" data-col="Selbsteinschätzung"><i class="dot on"></i><i class="dot on"></i><i class="dot on"></i><i class="dot half"></i><i class="dot"></i></span>
+            <span class="skill-dots skill-dots-empty" data-col="Modulnote">–</span>
+            <span class="skill-note skill-note-empty">kein Modul</span>
+          </div>
         </div>
       </section>
 
       <section class="card">
         <h2>Tools &amp; weitere Kenntnisse</h2>
         <div class="skill-group">
-          <div class="skill"><span class="skill-name">MySQL</span>
-            <span class="skill-dots"><i class="dot on"></i><i class="dot on"></i><i class="dot on"></i><i class="dot on"></i><i class="dot"></i></span></div>
-          <div class="skill"><span class="skill-name">OOP</span>
-            <span class="skill-dots"><i class="dot on"></i><i class="dot on"></i><i class="dot on"></i><i class="dot on"></i><i class="dot"></i></span></div>
-          <div class="skill"><span class="skill-name">NVIM</span>
-            <span class="skill-dots"><i class="dot on"></i><i class="dot on"></i><i class="dot on"></i><i class="dot half"></i><i class="dot"></i></span></div>
-          <div class="skill"><span class="skill-name">JSON</span>
-            <span class="skill-dots"><i class="dot on"></i><i class="dot on"></i><i class="dot on"></i><i class="dot half"></i><i class="dot"></i></span></div>
-          <div class="skill"><span class="skill-name">VS-Code</span>
-            <span class="skill-dots"><i class="dot on"></i><i class="dot on"></i><i class="dot on"></i><i class="dot"></i><i class="dot"></i></span></div>
-          <div class="skill"><span class="skill-name">Git</span>
-            <span class="skill-dots"><i class="dot on"></i><i class="dot on"></i><i class="dot on"></i><i class="dot"></i><i class="dot"></i></span></div>
-          <div class="skill"><span class="skill-name">MongoDB</span>
-            <span class="skill-dots"><i class="dot on"></i><i class="dot on"></i><i class="dot on"></i><i class="dot"></i><i class="dot"></i></span></div>
-          <div class="skill"><span class="skill-name">Networking</span>
-            <span class="skill-dots"><i class="dot on"></i><i class="dot on"></i><i class="dot on"></i><i class="dot"></i><i class="dot"></i></span></div>
-          <div class="skill"><span class="skill-name">Docker</span>
-            <span class="skill-dots"><i class="dot on"></i><i class="dot on"></i><i class="dot half"></i><i class="dot"></i><i class="dot"></i></span></div>
-          <div class="skill"><span class="skill-name">Sysadmin</span>
-            <span class="skill-dots"><i class="dot on"></i><i class="dot on"></i><i class="dot half"></i><i class="dot"></i><i class="dot"></i></span></div>
+          <div class="skill-head" aria-hidden="true">
+            <span></span>
+            <span>Selbsteinschätzung</span>
+            <span>Modulnote</span>
+            <span></span>
+          </div>
+          <div class="skill">
+            <span class="skill-name">Git</span>
+            <span class="skill-dots" data-col="Selbsteinschätzung"><i class="dot on"></i><i class="dot on"></i><i class="dot on"></i><i class="dot on"></i><i class="dot half"></i></span>
+            <span class="skill-dots skill-dots-empty" data-col="Modulnote">–</span>
+            <span class="skill-note skill-note-empty">kein Modul</span>
+          </div>
+          <div class="skill">
+            <span class="skill-name">Docker</span>
+            <span class="skill-dots" data-col="Selbsteinschätzung"><i class="dot on"></i><i class="dot on"></i><i class="dot half"></i><i class="dot"></i><i class="dot"></i></span>
+            <span class="skill-dots" data-col="Modulnote"><i class="dot on"></i><i class="dot on"></i><i class="dot half"></i><i class="dot"></i><i class="dot"></i></span>
+            <span class="skill-note" title="M347 – Dienst mit Container anwenden">M347 · 3.5</span>
+          </div>
+          <div class="skill">
+            <span class="skill-name">MySQL</span>
+            <span class="skill-dots" data-col="Selbsteinschätzung"><i class="dot on"></i><i class="dot on"></i><i class="dot on"></i><i class="dot on"></i><i class="dot"></i></span>
+            <span class="skill-dots" data-col="Modulnote"><i class="dot on"></i><i class="dot on"></i><i class="dot on"></i><i class="dot"></i><i class="dot"></i></span>
+            <span class="skill-note" title="M106 – Datenbanken abfragen, bearbeiten und warten">M106 · 4.0</span>
+          </div>
+          <div class="skill">
+            <span class="skill-name">OOP</span>
+            <span class="skill-dots" data-col="Selbsteinschätzung"><i class="dot on"></i><i class="dot on"></i><i class="dot on"></i><i class="dot on"></i><i class="dot"></i></span>
+            <span class="skill-dots" data-col="Modulnote"><i class="dot on"></i><i class="dot on"></i><i class="dot on"></i><i class="dot"></i><i class="dot"></i></span>
+            <span class="skill-note" title="M320 – Objektorientiert Programmieren">M320 · 4.0</span>
+          </div>
+          <div class="skill">
+            <span class="skill-name">JSON</span>
+            <span class="skill-dots" data-col="Selbsteinschätzung"><i class="dot on"></i><i class="dot on"></i><i class="dot on"></i><i class="dot half"></i><i class="dot"></i></span>
+            <span class="skill-dots skill-dots-empty" data-col="Modulnote">–</span>
+            <span class="skill-note skill-note-empty">kein Modul</span>
+          </div>
+          <div class="skill">
+            <span class="skill-name">Networking</span>
+            <span class="skill-dots" data-col="Selbsteinschätzung"><i class="dot on"></i><i class="dot on"></i><i class="dot half"></i><i class="dot"></i><i class="dot"></i></span>
+            <span class="skill-dots" data-col="Modulnote"><i class="dot on"></i><i class="dot on"></i><i class="dot on"></i><i class="dot half"></i><i class="dot"></i></span>
+            <span class="skill-note" title="M117 – Informatik- und Netzinfrastruktur für ein kleines Unternehmen realisieren">M117 · 4.5</span>
+          </div>
+          <div class="skill">
+            <span class="skill-name">MongoDB</span>
+            <span class="skill-dots" data-col="Selbsteinschätzung"><i class="dot on"></i><i class="dot on"></i><i class="dot on"></i><i class="dot"></i><i class="dot"></i></span>
+            <span class="skill-dots" data-col="Modulnote"><i class="dot on"></i><i class="dot on"></i><i class="dot on"></i><i class="dot"></i><i class="dot"></i></span>
+            <span class="skill-note" title="M165 – NoSQL-Datenbanken einsetzen">M165 · 4.0</span>
+          </div>
+          <div class="skill">
+            <span class="skill-name">Sysadmin</span>
+            <span class="skill-dots" data-col="Selbsteinschätzung"><i class="dot on"></i><i class="dot on"></i><i class="dot on"></i><i class="dot half"></i><i class="dot"></i></span>
+            <span class="skill-dots" data-col="Modulnote"><i class="dot on"></i><i class="dot on"></i><i class="dot on"></i><i class="dot on"></i><i class="dot"></i></span>
+            <span class="skill-note" title="M187 – ICT-Arbeitsplatz mit Betriebssystem in Betrieb nehmen">M187 · 5.0</span>
+          </div>
+          <div class="skill">
+            <span class="skill-name">Selbstständiges Arbeiten</span>
+            <span class="skill-dots" data-col="Selbsteinschätzung"><i class="dot on"></i><i class="dot on"></i><i class="dot on"></i><i class="dot half"></i><i class="dot"></i></span>
+            <span class="skill-dots" data-col="Modulnote"><i class="dot on"></i><i class="dot on"></i><i class="dot on"></i><i class="dot on"></i><i class="dot"></i></span>
+            <span class="skill-note" title="M431 – Aufträge im eigenen Berufsumfeld selbständig durchführen">M431 · 5.0</span>
+          </div>
         </div>
+      </section>
+
+      <section class="card">
+        <h2>Wie die beiden Spalten zu lesen sind</h2>
         <p class="legend">
-          Skala: 1 = Grundkenntnisse · 2 = zaghafte Erfahrung · 3 = theoretische
-          Kenntnisse / erste Erfahrung · 4 = sichere Anwendung / gute Erfahrung ·
-          5 = Experte / viel praktische Erfahrung
+          <strong>Selbsteinschätzung</strong> – meine eigene Einordnung:
+          1 = erste Berührungspunkte · 2 = Grundkenntnisse, Anwendung mit
+          Anleitung · 3 = solide Grundlagen, selbstständig in Schulprojekten ·
+          4 = sichere, selbstständige Anwendung in eigenen Projekten ·
+          5 = sehr sicher, auch bei komplexeren Aufgaben.
+          Halbe Kästchen stehen für Zwischenstufen.
+        </p>
+        <p class="legend">
+          <strong>Modulnote</strong> – die Note aus dem entsprechenden Modul
+          meines Modulnotenüberblicks, umgerechnet auf dieselben fünf Kästchen:
+          ein Kästchen entspricht einem Notenpunkt über 1, eine 6.0 füllt also
+          alle fünf, eine 4.0 deren drei. Die Modulnummer steht jeweils rechts
+          daneben, der vollständige Modultitel erscheint beim Darüberfahren.
         </p>
       </section>
 
     </main>
+
+    <footer class="site-footer">
+      <p>© 2026 Euan S. Roberts · Online-Bewerbungsprofil IMS Basel · Stand: August 2026</p>
+    </footer>
   </body>
 </html>

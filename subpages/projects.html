@@ -3,33 +3,48 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Projects | Euan Roberts</title>
+    <title>Projekte | Euan S. Roberts</title>
+    <meta name="description" content="Schulische und private Arbeitsbeispiele von Euan S. Roberts – Webentwicklung, Cloud-Projekt, Python-Werkzeuge und Java." />
+    <meta name="author" content="Euan S. Roberts" />
+    <link rel="icon" href="../favicon.svg" type="image/svg+xml" />
+
+    <!-- Vorschau, wenn der Link per Mail, Teams oder Chat geteilt wird -->
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="Euan S. Roberts – Online-Bewerbungsprofil" />
+    <meta property="og:locale" content="de_CH" />
+    <meta property="og:title" content="Projekte – Euan S. Roberts" />
+    <meta property="og:description" content="Schulische und private Arbeitsbeispiele von Euan S. Roberts – Webentwicklung, Cloud-Projekt, Python-Werkzeuge und Java." />
+    <meta property="og:url" content="https://euansroberts.github.io/online-profil/subpages/projects.html" />
+    <meta name="twitter:card" content="summary" />
+
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Gluten:wght@100..900&family=Roboto:wght@400;500&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300..800&family=Roboto:wght@400;500&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="../styles/style.css">
-    <script src="../scripts/script.js"></script>
-    <style>
-      /* Project descriptions use Roboto */
-      .project p { font-family: "Roboto", system-ui, sans-serif; }
-    </style>
+    <script src="../scripts/script.js" defer></script>
   </head>
   <body style="--h: 159;">
 
-    <nav class="menu">
-      <button class="menu-toggle" aria-label="Menü öffnen">+</button>
-      <ul class="menu-items">
-        <li><a href="../index.html">Home</a></li>
-        <li><a href="about_me.html">About</a></li>
-        <li><a href="projects.html" class="active">Projects</a></li>
-        <li><a href="ict_skills.html">ICT<br>Skills</a></li>
-        <li><a href="documents.html">Docs</a></li>
-        <li><a href="contact.html">Mail</a></li>
+    <nav class="sidebar" aria-label="Hauptnavigation">
+      <a class="sidebar-brand" href="../index.html">
+        <span class="brand-name">Euan S. Roberts</span>
+        <span class="brand-role">Online-Bewerbungsprofil</span>
+      </a>
+      <ul class="nav-list">
+        <li><a href="../index.html">Start</a></li>
+        <li><a href="about_me.html">Über mich</a></li>
+        <li><a href="projects.html" class="active" aria-current="page">Projekte</a></li>
+        <li><a href="ict_skills.html">ICT-Kenntnisse</a></li>
+        <li><a href="documents.html">Dokumente</a></li>
+        <li><a href="contact.html">Kontakt</a></li>
       </ul>
+      <div class="sidebar-foot">
+        <a href="mailto:euan.s.roberts@icloud.com">euan.s.roberts@icloud.com</a>
+      </div>
     </nav>
 
     <main class="page">
-      <h1 class="page-title">Projects</h1>
+      <h1 class="page-title">Projekte</h1>
       <p class="page-subtitle">Eine Auswahl meiner schulischen und privaten Arbeiten</p>
 
       <section class="card">
@@ -70,7 +85,7 @@
 
           <article class="project">
             <span class="tag">Java</span>
-            <h3>Gambling</h3>
+            <h3>Roulette – CLI in Java</h3>
             <p>
               Ein Roulette-Spiel als Kommandozeilen-Tool (CLI), komplett in Java
               umgesetzt – ein Übungsprojekt zur objektorientierten Programmierung.
@@ -96,6 +111,7 @@
 
           <article class="project">
             <span class="tag">Python</span>
+            <span class="tag tag-paused">Pausiert</span>
             <h3>DLT</h3>
             <p>
               Ein kleines Python-Tool, das die DeepL-API nutzt, um Texte
@@ -118,5 +134,9 @@
       </section>
 
     </main>
+
+    <footer class="site-footer">
+      <p>© 2026 Euan S. Roberts · Online-Bewerbungsprofil IMS Basel · Stand: August 2026</p>
+    </footer>
   </body>
 </html>

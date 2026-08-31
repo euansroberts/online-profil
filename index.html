@@ -3,73 +3,74 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Euan Roberts | Software Engineer</title>
+    <title>Euan S. Roberts | Online-Bewerbungsprofil</title>
+    <meta name="description" content="Online-Bewerbungsprofil von Euan S. Roberts, Schüler an der Informatikmittelschule Basel, auf der Suche nach einem 12-monatigen IMS-Praktikum in der Applikationsentwicklung." />
+    <meta name="author" content="Euan S. Roberts" />
+    <link rel="icon" href="favicon.svg" type="image/svg+xml" />
+
+    <!-- Vorschau, wenn der Link per Mail, Teams oder Chat geteilt wird -->
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="Euan S. Roberts – Online-Bewerbungsprofil" />
+    <meta property="og:locale" content="de_CH" />
+    <meta property="og:title" content="Euan S. Roberts – Online-Bewerbungsprofil" />
+    <meta property="og:description" content="Online-Bewerbungsprofil von Euan S. Roberts, Schüler an der Informatikmittelschule Basel, auf der Suche nach einem 12-monatigen IMS-Praktikum in der Applikationsentwicklung." />
+    <meta property="og:url" content="https://euansroberts.github.io/online-profil/" />
+    <meta name="twitter:card" content="summary" />
+
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Gluten:wght@100..900&family=Roboto:wght@400;500&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300..800&family=Roboto:wght@400;500&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="styles/style.css">
-    <script src="scripts/script.js"></script>
-    <style>
-      /* Kurzprofil text uses Roboto */
-      .kurzprofil p {
-        font-family: "Roboto", system-ui, sans-serif;
-        font-size: 1.12rem;
-        line-height: 1.7;
-      }
-
-      /* Fit the hero + Kurzprofil into one screen (no scrolling) */
-      body {
-        min-height: 100vh;
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-        gap: 44px;
-        padding: 90px 18px 28px;
-      }
-      .hero { min-height: auto; padding: 0; }
-      .hero-inner { padding: 40px 56px; }
-      .hero h1 { font-size: clamp(1.5rem, 3.3vw, 2.6rem); }
-      .hero h2 { font-size: clamp(1.1rem, 2.5vw, 1.9rem); }
-      .kurzprofil { margin: 0; }
-    </style>
+    <script src="scripts/script.js" defer></script>
   </head>
   <body style="--h: 146;">
 
-    <!-- Hamburger menu: little circle, top right. White circles spawn on hover. -->
-    <nav class="menu">
-      <button class="menu-toggle" aria-label="Menü öffnen">+</button>
-      <ul class="menu-items">
-        <li><a href="index.html" class="active">Home</a></li>
-        <li><a href="subpages/about_me.html">About</a></li>
-        <li><a href="subpages/projects.html">Projects</a></li>
-        <li><a href="subpages/ict_skills.html">ICT<br>Skills</a></li>
-        <li><a href="subpages/documents.html">Docs</a></li>
-        <li><a href="subpages/contact.html">Mail</a></li>
+    <nav class="sidebar" aria-label="Hauptnavigation">
+      <a class="sidebar-brand" href="index.html">
+        <span class="brand-name">Euan S. Roberts</span>
+        <span class="brand-role">Online-Bewerbungsprofil</span>
+      </a>
+      <ul class="nav-list">
+        <li><a href="index.html" class="active" aria-current="page">Start</a></li>
+        <li><a href="subpages/about_me.html">Über mich</a></li>
+        <li><a href="subpages/projects.html">Projekte</a></li>
+        <li><a href="subpages/ict_skills.html">ICT-Kenntnisse</a></li>
+        <li><a href="subpages/documents.html">Dokumente</a></li>
+        <li><a href="subpages/contact.html">Kontakt</a></li>
       </ul>
+      <div class="sidebar-foot">
+        <a href="mailto:euan.s.roberts@icloud.com">euan.s.roberts@icloud.com</a>
+      </div>
     </nav>
 
-    <header class="hero">
-      <div class="hero-inner">
-        <h1>Hallo, mein Name ist Euan S. Roberts und das ist mein Online-Bewerbungsprofil</h1>
-        <h2>Ich bin momentan ein Schüler bei der IMS Basel</h2>
-      </div>
-    </header>
+    <main class="page page-home">
 
-    <!-- Kurzprofil (Home) -->
-    <section class="kurzprofil">
-      <h2>Kurzprofil</h2>
-      <p>
-        Ich bin Schüler im 2. Jahr der Informatikmittelschule Basel und bewerbe
-        mich für ein 12-monatiges IMS-Praktikum bei Unblu Inc. Mit soliden
-        Kenntnissen in Java, Python, PHP, SQL und Webentwicklung sowie einer
-        Vorliebe für Backend-Entwicklung und Optimierung bringe ich genau die
-        Neugier und Lernbereitschaft mit, die Ihr internationales Team sucht.
-        Als zweisprachiger Entwickler (Englisch als Muttersprache) arbeite ich
-        analytisch, zuverlässig und gerne im Team – bereit, mein theoretisches
-        Wissen bei Unblu in echte Softwareprojekte und meine IPA einzubringen.
-      </p>
-    </section>
+      <header class="hero">
+        <div class="hero-inner">
+          <h1>Euan S. Roberts</h1>
+          <h2>Online-Bewerbungsprofil · Ich bin Schüler an der IMS Basel</h2>
+        </div>
+      </header>
+
+      <section class="kurzprofil">
+        <h2>Kurzprofil</h2>
+        <p>
+          Ich bin Schüler im 2. Jahr der Informatikmittelschule Basel und bewerbe
+          mich für ein 12-monatiges IMS-Praktikum. Mit soliden Kenntnissen in
+          Java, Python, PHP, SQL und Webentwicklung sowie einer Vorliebe für
+          Backend-Entwicklung und Optimierung bringe ich Neugier und
+          Lernbereitschaft für die tägliche Arbeit im Entwicklungsteam mit.
+          Als zweisprachiger Entwickler (Englisch als Muttersprache) arbeite ich
+          analytisch, zuverlässig und gerne im Team – bereit, mein theoretisches
+          Wissen in echte Softwareprojekte und meine IPA einzubringen.
+        </p>
+      </section>
+
+    </main>
+
+    <footer class="site-footer">
+      <p>© 2026 Euan S. Roberts · Online-Bewerbungsprofil IMS Basel · Stand: August 2026</p>
+    </footer>
 
   </body>
 </html>

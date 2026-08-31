@@ -3,48 +3,70 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Documents | Euan Roberts</title>
+    <title>Dokumente | Euan S. Roberts</title>
+    <meta name="description" content="Bewerbungsunterlagen von Euan S. Roberts als PDF zum Herunterladen – geschützter Bereich mit Login." />
+    <meta name="author" content="Euan S. Roberts" />
+    <link rel="icon" href="../favicon.svg" type="image/svg+xml" />
+
+    <!-- Vorschau, wenn der Link per Mail, Teams oder Chat geteilt wird -->
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="Euan S. Roberts – Online-Bewerbungsprofil" />
+    <meta property="og:locale" content="de_CH" />
+    <meta property="og:title" content="Dokumente – Euan S. Roberts" />
+    <meta property="og:description" content="Bewerbungsunterlagen von Euan S. Roberts als PDF zum Herunterladen – geschützter Bereich mit Login." />
+    <meta property="og:url" content="https://euansroberts.github.io/online-profil/subpages/documents.html" />
+    <meta name="twitter:card" content="summary" />
+
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Gluten:wght@100..900&family=Roboto:wght@400;500&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@300..800&family=Roboto:wght@400;500&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="../styles/style.css">
-    <script src="../scripts/script.js"></script>
+    <script src="../scripts/script.js" defer></script>
   </head>
   <body style="--h: 172;">
 
-    <nav class="menu">
-      <button class="menu-toggle" aria-label="Menü öffnen">+</button>
-      <ul class="menu-items">
-        <li><a href="../index.html">Home</a></li>
-        <li><a href="about_me.html">About</a></li>
-        <li><a href="projects.html">Projects</a></li>
-        <li><a href="ict_skills.html">ICT<br>Skills</a></li>
-        <li><a href="documents.html" class="active">Docs</a></li>
-        <li><a href="contact.html">Mail</a></li>
+    <nav class="sidebar" aria-label="Hauptnavigation">
+      <a class="sidebar-brand" href="../index.html">
+        <span class="brand-name">Euan S. Roberts</span>
+        <span class="brand-role">Online-Bewerbungsprofil</span>
+      </a>
+      <ul class="nav-list">
+        <li><a href="../index.html">Start</a></li>
+        <li><a href="about_me.html">Über mich</a></li>
+        <li><a href="projects.html">Projekte</a></li>
+        <li><a href="ict_skills.html">ICT-Kenntnisse</a></li>
+        <li><a href="documents.html" class="active" aria-current="page">Dokumente</a></li>
+        <li><a href="contact.html">Kontakt</a></li>
       </ul>
+      <div class="sidebar-foot">
+        <a href="mailto:euan.s.roberts@icloud.com">euan.s.roberts@icloud.com</a>
+      </div>
     </nav>
 
     <main class="page">
-      <h1 class="page-title">Documents</h1>
+      <h1 class="page-title">Dokumente</h1>
       <p class="page-subtitle">Privater Bereich – nur mit Login zugänglich</p>
 
       <!-- Login box -->
       <section class="card" id="login-box">
         <h2>🔒 Anmeldung erforderlich</h2>
-        <p>Bitte melden Sie sich an, um meine Bewerbungsunterlagen herunterzuladen.</p>
+        <p>Bitte geben Sie das Passwort ein, um meine Bewerbungsunterlagen herunterzuladen.</p>
         <form class="login-form" id="login-form">
-          <label for="username">Benutzername</label>
-          <input type="text" id="username" name="username" autocomplete="username" required>
           <label for="password">Passwort</label>
           <input type="password" id="password" name="password" autocomplete="current-password" required>
-          <div class="login-error" id="login-error"></div>
-          <p class="legend" style="font-family: 'Roboto', system-ui, sans-serif;">
-            Für IDAF sind dies die Login-Daten:<br>
-            Benutzername <strong>bewerbung</strong>&nbsp;&nbsp;&nbsp; Passwort <strong>unblu2026</strong>
-          </p>
+          <div class="login-error" id="login-error" role="alert"></div>
+          <noscript>
+            <p class="login-error">Für den geschützten Bereich wird JavaScript benötigt.</p>
+          </noscript>
           <p><button type="submit" class="btn">Anmelden</button></p>
         </form>
       </section>
+
+      <!-- Sichtbar, sobald man angemeldet ist -->
+      <div class="logout-bar hidden" id="logout-bar">
+        <span>🔓 Angemeldet</span>
+        <button type="button" class="btn" id="logout-btn">Abmelden</button>
+      </div>
 
       <!-- Locked content, revealed after login -->
       <section class="card hidden" id="locked-area">
@@ -53,31 +75,37 @@
         <ul class="doc-list">
           <li>
             <span>Komplettes Bewerbungsdossier</span>
-            <a class="btn" href="../private/IDAF_Bewerbungsdossier.pdf" download>Download</a>
-          </li>
-          <li>
-            <span>Motivationsschreiben</span>
-            <a class="btn" href="../private/IDAF_Bewerbungsdossier.pdf" download>Download</a>
+            <button type="button" class="btn" data-encrypted="IDAF_Bewerbungsdossier.pdf.enc" data-name="IDAF_Bewerbungsdossier.pdf">Download</button>
           </li>
           <li>
             <span>Lebenslauf</span>
-            <a class="btn" href="../private/IDAF_Bewerbungsdossier.pdf" download>Download</a>
+            <button type="button" class="btn" data-encrypted="Lebenslauf.pdf.enc" data-name="Lebenslauf.pdf">Download</button>
           </li>
           <li>
             <span>Zeugnis</span>
-            <a class="btn" href="../private/IDAF_Bewerbungsdossier.pdf" download>Download</a>
+            <button type="button" class="btn" data-encrypted="Zeugnis.pdf.enc" data-name="Zeugnis.pdf">Download</button>
           </li>
           <li>
             <span>Modulnotenüberblick</span>
-            <a class="btn" href="../private/IDAF_Bewerbungsdossier.pdf" download>Download</a>
+            <button type="button" class="btn" data-encrypted="Modulnotenueberblick.pdf.enc" data-name="Modulnotenueberblick.pdf">Download</button>
+          </li>
+          <li>
+            <span>Schulbestätigung</span>
+            <button type="button" class="btn" data-encrypted="Schulbestaetigung.pdf.enc" data-name="Schulbestaetigung.pdf">Download</button>
           </li>
         </ul>
+        <div class="login-error" id="download-status" role="status" aria-live="polite"></div>
         <p class="legend">
-          Hinweis: Motivationsschreiben, Lebenslauf, Zeugnis und
-          Modulnotenüberblick sind im Bewerbungsdossier zusammengefasst.
+          Hinweis: Lebenslauf, Zeugnis, Modulnotenüberblick und Schulbestätigung
+          stehen einzeln zur Verfügung und sind zusätzlich im kompletten
+          Bewerbungsdossier enthalten.
         </p>
       </section>
 
     </main>
+
+    <footer class="site-footer">
+      <p>© 2026 Euan S. Roberts · Online-Bewerbungsprofil IMS Basel · Stand: August 2026</p>
+    </footer>
   </body>
 </html>
