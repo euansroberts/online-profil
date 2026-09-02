@@ -6,3 +6,6 @@ pdf-quellen/
 
 # Editor / tooling
 .DS_Store
+
+# Privates Bewerbungsdossier – nicht ins Repo.
+private/
