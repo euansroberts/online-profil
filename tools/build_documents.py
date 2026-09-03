@@ -149,7 +149,7 @@ def main() -> int:
     kept = [n for n in range(1, len(PdfReader(SRC).pages) + 1) if n not in DROPPED_PAGES]
 
     write_pdf(list(zip(kept, range(1, len(kept) + 1))),
-              DEST / "IDAF_Bewerbungsdossier.pdf",
+              DEST / "Bewerbungsdossier.pdf",
               "Bewerbungsdossier Euan Roberts",
               toc_on_first=True)
 

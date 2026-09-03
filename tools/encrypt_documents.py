@@ -35,7 +35,7 @@ ITERATIONS = 600_000
 # Das Salt muss nicht geheim sein; es steht auch in scripts/script.js.
 SALT_HEX   = "5c1d8f2ab7e04936a1c8d5e73f0b2647"
 FILES      = [
-    "IDAF_Bewerbungsdossier.pdf",
+    "Bewerbungsdossier.pdf",
     "Lebenslauf.pdf",
     "Zeugnis.pdf",
     "Modulnotenueberblick.pdf",
