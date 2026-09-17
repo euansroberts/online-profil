@@ -37,7 +37,10 @@ SALT_HEX   = "5c1d8f2ab7e04936a1c8d5e73f0b2647"
 FILES      = [
     "Bewerbungsdossier.pdf",
     "Lebenslauf.pdf",
-    "Zeugnis.pdf",
+    "Zeugnis_2024-1.pdf",
+    "Zeugnis_2024-2.pdf",
+    "Zeugnis_2025-1.pdf",
+    "Zeugnis_2025-2.pdf",
     "Modulnotenueberblick.pdf",
     "Schulbestaetigung.pdf",
 ]
